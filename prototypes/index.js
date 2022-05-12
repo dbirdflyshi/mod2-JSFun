@@ -20,9 +20,9 @@ const { dinosaurs, humans, movies } = require('./datasets/dinosaurs');
 const kittyPrompts = {
 	// Return an array of just the names of kitties who are orange e.g.
 	// ['Tiger', 'Snickers']
-	orangePetNames() {
+	orangePetNames(cats) {
 
-		var orangeCats = kitties
+		var orangeCats = cats
 			.filter(cat => {return cat.color === 'orange'})
 			.map(catto => {return catto.name})
 		return orangeCats;
@@ -32,16 +32,17 @@ const kittyPrompts = {
 	// then we're going to use map to only keep the color key-value of the cat objects
   },
 
-  sortByAge() {
+	sortByAge(cats) {
     // Sort the kitties by their age
 
-    /* CODE GOES HERE */
-
+		return cats.sort((cat1, cat2) => {return cat2.age - cat1.age});
     // Annotation:
-    // Write your annotation here as a comment
+    // There's a sorting method used. It compares 2 cats at a time
+	// it compares tiger to felicia, then snickers to tiger,
+	// then max to snickers, tiger and felicia to understand the oldest to youngest. 
   },
 
-  growUp() {
+	growUp(cats) {
     // Return an array of kitties who have all grown up by 2 years e.g.
     // [{
     //   name: 'Felicia',
@@ -54,8 +55,12 @@ const kittyPrompts = {
     //   color: 'orange'
     // },
     // ...etc]
-
-    /* CODE GOES HERE */
+		cats.forEach(cat => {cat.age += 2})
+		return cats;
+	// Annotation:
+	// forEach is a logical solution for this problem. We know that forEach 
+	// doesnt return anything, but we can use it to modify existing objects.
+	// We do this and then return the object at the end of the function. 
   }
 };
 
