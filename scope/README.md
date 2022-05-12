@@ -78,29 +78,6 @@ In the event that the value of a variable would be undefined or the code would t
 ]
 ```
 
-# Order Of Operations
-
-#### Single Data Sets
-- [ ] kitties [][][]
-- [ ] puppers [][][]
-- [ ] club []
-- [ ] mods []
-- [ ] cakes [][][][][]
-- [ ] classrooms [][][]
-- [ ] books [][]
-- [ ] weather [][][]
-- [ ] nationalParks [][][]
-- [ ] breweries [][][]
-​
-### Double Data Sets
-- [ ] turing (instructors, cohorts) [][][][]
-- [ ] bosses (bosses, sidekicks) []
-- [ ] astronomy (constellations, stars) [][][]
-- [ ] ultima (weapons, characters) [][]
-​
-#### Triple Data Sets
-- [ ] dinosaurs (dinosaurs, humans, movies) [][][][]
-
 # Resources
 
 * [Turing Scope Lesson Plan](http://frontend.turing.io/lessons/module-2/scope-and-closures.html)
