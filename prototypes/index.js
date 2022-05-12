@@ -84,7 +84,7 @@ const kittyPrompts = {
 
 // DATASET: clubs from ./datasets/clubs
 const clubPrompts = {
-  membersBelongingToClubs() {
+  membersBelongingToClubs(clubs) {
     // Your function should access the clubs data through a parameter (it is being passed as an argument in the test file)
     // Create an object whose keys are the names of people, and whose values are
     // arrays that include the names of the clubs that person is a part of. e.g.
@@ -95,9 +95,23 @@ const clubPrompts = {
     // }
 
     /* CODE GOES HERE */
+	// Bare table
+	const usersByClub = {};
+	clubs.forEach(club => {
+		club.members.forEach(member => {
+			usersByClub[member] ? usersByClub[member].push(club.club) : usersByClub[member] = [club.club];
+		});
+	});
+
+	console.log(usersByClub);
 
     // Annotation:
-    // Write your annotation here as a comment
+    // 1: Build bare table
+	// 2: iterate through each club 
+	// 3: iterate through each member of the club
+	// 4: if the user exists in the club, add the club to the member list
+	// 5: rinse and repeat
+	return usersByClub;
   }
 };
 
