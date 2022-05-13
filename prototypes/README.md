@@ -87,26 +87,31 @@ You will then check that your solution is correct by running the corresponding t
 ## Prototype Test Checklist
 If you'd like to keep track of your progress, feel free to use the checklist below. Change the `[ ]` to `[x]` in order to check off each item.
 
+
+### Progress
+`13 / 41`
+`31%`
+
 #### Single Data Sets
-- [x] kitties
-- [x] puppers
-- [ ] club
-- [ ] mods
-- [ ] cakes
-- [ ] classrooms
-- [ ] books
-- [ ] weather
-- [ ] nationalParks
-- [ ] breweries
+- [x] kitties        [x] [x] [x] 
+- [x] puppers        [x] [x] [x] 
+- [x] club           [x]
+- [x] mods           [x]
+- [x] cakes          [x] [x] [x] [x] [x]
+- [ ] classrooms     [ ] [ ] [ ] 
+- [ ] books          [ ] [ ] 
+- [ ] weather        [ ] [ ] [ ] 
+- [ ] nationalParks  [ ] [ ] [ ] 
+- [ ] breweries      [ ] [ ] [ ] 
 
 ### Double Data Sets
-- [ ] turing (instructors, cohorts)
-- [ ] bosses (bosses, sidekicks)
-- [ ] astronomy (constellations, stars)
-- [ ] ultima (weapons, characters)
+- [ ] turing (instructors, cohorts)     [ ] [ ] [ ] [ ]
+- [ ] bosses (bosses, sidekicks)        [ ] 
+- [ ] astronomy (constellations, stars) [ ] [ ] [ ] 
+- [ ] ultima (weapons, characters)      [ ] [ ] 
 
 #### Triple Data Sets
-- [ ] dinosaurs (dinosaurs, humans, movies)
+- [ ] dinosaurs (dinosaurs, humans, movies) [ ] [ ] [ ] [ ] 
 
 # More Practice
 For more practice with iterators (in an assessment-style format), check out [this gist](https://gist.github.com/kaylagordon/c1f62f2c43e27dee3c6176f4d54aa3b6)!

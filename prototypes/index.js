@@ -102,9 +102,6 @@ const clubPrompts = {
 			usersByClub[member] ? usersByClub[member].push(club.club) : usersByClub[member] = [club.club];
 		});
 	});
-
-	console.log(usersByClub);
-
     // Annotation:
     // 1: Build bare table
 	// 2: iterate through each club 
@@ -142,11 +139,19 @@ const modPrompts = {
     //   { mod: 3, studentsPerInstructor: 10 },
     //   { mod: 4, studentsPerInstructor: 8 }
     // ]
-
+    spe = []
     /* CODE GOES HERE */
+    mods.forEach((mod) => {
+		var studentsPerInstructor = mod.students/mod.instructors
+		spe.push({ mod: mod.mod, studentsPerInstructor: studentsPerInstructor})
+    })
 
+    return spe;
     // Annotation:
-    // Write your annotation here as a comment
+    // 1- iterate through each mod
+	// 2- divide students by instructors
+	// 3- store output in new object array 
+	// 4- return output
   }
 };
 
@@ -176,9 +181,11 @@ const cakePrompts = {
     //    { flavor: 'yellow', inStock: 14 },
     //    ..etc
     // ]
-
-    /* CODE GOES HERE */
-
+	const flavorStock = cakes.reduce((flavorStock, cake) =>{
+		flavorStock.push({flavor: cake.cakeFlavor, inStock: cake.inStock});
+		return flavorStock;
+	}, [])
+	return flavorStock;
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -205,30 +212,39 @@ const cakePrompts = {
     // ]
 
     /* CODE GOES HERE */
-
+	var inStockCakes = cakes.filter((cake) =>cake.inStock > 0);
+	return inStockCakes;
     // Annotation:
-    // Write your annotation here as a comment
+    // 1 - We know filter iterates through each element of the array
+	// 2 - this allows us keep only those with the specific condition: > 0
   },
 
   totalInventory() {
     // Return the total amount of cakes in stock e.g.
     // 59
-
-    /* CODE GOES HERE */
-
+	var total = cakes.reduce((sum,cake) => sum + cake.inStock,0);
+	return total;
     // Annotation:
-    // Write your annotation here as a comment
+    // Reduce is the best solution we've learned so far to sum up all elements in an array
   },
 
   allToppings() {
     // Return an array of all unique toppings (no duplicates) needed to bake
     // every cake in the dataset e.g.
     // ['dutch process cocoa', 'toasted sugar', 'smoked sea salt', 'berries', ..etc]
-
+	var toppings = [];
     /* CODE GOES HERE */
-
+	cakes.forEach((cake) => {
+		cake['toppings'].forEach(topping => {
+			toppings.includes(topping) ? null : toppings.push(topping);
+		});
+	});
+	return toppings;
     // Annotation:
-    // Write your annotation here as a comment
+    // We could use forEach or reduce for this. I decided to use forEach because
+	// 		ive already used reduce more than the rest. 
+	// It's looping through all cakes, then all toppings in each cake and adding
+	//		the topping to the toppings array every time it doesnt already exist. 
   },
 
   groceryList() {
@@ -243,7 +259,13 @@ const cakePrompts = {
     // }
 
     /* CODE GOES HERE */
-
+	const groceries = cakes.reduce((groceries, cake) => {
+		cake.toppings.forEach((topping) =>{
+			groceries[topping]? groceries[topping]++: groceries[topping] = 1
+		});
+		return groceries
+	}, {});
+	return groceries;
     // Annotation:
     // Write your annotation here as a comment
   }
