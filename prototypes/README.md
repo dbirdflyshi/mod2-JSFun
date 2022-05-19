@@ -98,9 +98,9 @@ If you'd like to keep track of your progress, feel free to use the checklist bel
 - [x] club           [x]
 - [x] mods           [x]
 - [x] cakes          [x] [x] [x] [x] [x]
-- [ ] classrooms     [ ] [ ] [ ] 
-- [ ] books          [ ] [ ] 
-- [ ] weather        [ ] [ ] [ ] 
+- [x] classrooms     [x] [x] [x] 
+- [x] books          [x] [x] 
+- [x] weather        [x] [x] [x] 
 - [ ] nationalParks  [ ] [ ] [ ] 
 - [ ] breweries      [ ] [ ] [ ] 
 

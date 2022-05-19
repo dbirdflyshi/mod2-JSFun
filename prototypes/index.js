@@ -405,7 +405,11 @@ const weatherPrompts = {
     // [ 40, 40, 44.5, 43.5, 57, 35, 65.5, 62, 14, 46.5 ]
 
     /* CODE GOES HERE */
-
+	return weather.reduce((acc,point) =>{
+		var avg = (point.temperature.high + point.temperature.low)/2
+		acc.push(avg);
+		return acc;
+	},[])
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -418,7 +422,11 @@ const weatherPrompts = {
     // 'Raleigh, North Carolina is mostly sunny.' ]
 
     /* CODE GOES HERE */
-
+	return weather.reduce((acc,point) =>{
+		var phrase;
+		point.type === 'sunny' || point.type === 'mostly sunny' ? acc.push(`${point.location} is ${point.type}.`): null;
+		return acc;
+	},[])
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -433,7 +441,10 @@ const weatherPrompts = {
     // }
 
     /* CODE GOES HERE */
-
+	sorted = weather.sort((point1,point2) => {
+		return point2.humidity - point1.humidity;
+	})
+	return weather[0];
     // Annotation:
     // Write your annotation here as a comment
 
