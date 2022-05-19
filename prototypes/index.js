@@ -470,7 +470,13 @@ const nationalParksPrompts = {
     //}
 
     /* CODE GOES HERE */
-
+	var toVisit = [];
+	var visited = [];
+	nationalParks.forEach((park) => {
+		park.visited === false ? toVisit.push(park.name) : visited.push(park.name);
+	});
+	return {'parksToVisit': toVisit, 'parksVisited': visited}
+	
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -486,7 +492,20 @@ const nationalParksPrompts = {
 
 
     /* CODE GOES HERE */
-
+	var states = nationalParks.reduce((acc,park) => {
+		acc[park.location]? null : acc.push(park.location)
+		return acc
+	},[])
+	var output = []
+	states.forEach((state) => {
+		var parkName;
+		nationalParks.forEach((park) => {
+			park.location === state ? parkName = park.name : null
+		})
+		var parkList = { [state]: parkName}
+		output.push(parkList)
+	});
+	return output;
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -508,7 +527,11 @@ const nationalParksPrompts = {
     //   'rock climbing' ]
 
     /* CODE GOES HERE */
-
+	var activities = nationalParks.reduce((acc,park) =>{
+		acc.push(park.activities)
+		return acc;
+	},[])
+	return [...new Set(activities.flat())];
     // Annotation:
     // Write your annotation here as a comment
   }

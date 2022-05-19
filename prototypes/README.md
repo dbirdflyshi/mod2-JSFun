@@ -89,8 +89,8 @@ If you'd like to keep track of your progress, feel free to use the checklist bel
 
 
 ### Progress
-`13 / 41`
-`31%`
+`21 / 41`
+`52%`
 
 #### Single Data Sets
 - [x] kitties        [x] [x] [x] 
@@ -101,7 +101,7 @@ If you'd like to keep track of your progress, feel free to use the checklist bel
 - [x] classrooms     [x] [x] [x] 
 - [x] books          [x] [x] 
 - [x] weather        [x] [x] [x] 
-- [ ] nationalParks  [ ] [ ] [ ] 
+- [x] nationalParks  [x] [x] [x] 
 - [ ] breweries      [ ] [ ] [ ] 
 
 ### Double Data Sets
