@@ -351,35 +351,41 @@ const classPrompts = {
 // DATASET: books from './datasets/books
 
 const bookPrompts = {
-  removeViolence() {
-    // Your function should access the books data through a parameter (it is being passed as an argument in the test file)
-    // return an array of all book titles that are not horror or true crime. Eg:
+	removeViolence(books) {
+		// Your function should access the books data through a parameter (it is being passed as an argument in the test file)
+		// return an array of all book titles that are not horror or true crime. Eg:
 
-    //  ['1984', 'The Great Gatsby', 'Lord of the Flies', 'Harry Potter and the Sorcerer\'s Stone',
-    //   'The Hitchhiker\'s Guide to the Galaxy', 'Flowers for Algernon', 'Slaughterhouse-Five',
-    //   'The Handmaid\'s Tale', 'The Metamorphosis', 'Brave New World', 'Life of Pi',
-    //   'The Curious Incident of the Dog in the Night - Time', 'The Bell Jar',
-    //   'Catch-22', 'Treasure Island']
+		//  ['1984', 'The Great Gatsby', 'Lord of the Flies', 'Harry Potter and the Sorcerer\'s Stone',
+		//   'The Hitchhiker\'s Guide to the Galaxy', 'Flowers for Algernon', 'Slaughterhouse-Five',
+		//   'The Handmaid\'s Tale', 'The Metamorphosis', 'Brave New World', 'Life of Pi',
+		//   'The Curious Incident of the Dog in the Night - Time', 'The Bell Jar',
+		//   'Catch-22', 'Treasure Island']
 
 
-    /* CODE GOES HERE */
+		/* CODE GOES HERE */
+		return books.reduce((acc, book)=>{
+			book.genre === 'Horror' || book.genre ==='True Crime'? null:acc.push(book.title)
+			return acc;
+		},[])
+		// Annotation:
+		// Write your annotation here as a comment
 
-    // Annotation:
-    // Write your annotation here as a comment
+ 	},
+  	getNewBooks(books) {
+		// return an array of objects containing all books that were
+		// published in the 90's and 00's. Inlucde the title and the year Eg:
 
-  },
-  getNewBooks() {
-    // return an array of objects containing all books that were
-    // published in the 90's and 00's. Inlucde the title and the year Eg:
+		// [{ title: 'Harry Potter and the Sorcerer\'s Stone', year: 1997 },
+		//  { title: 'Life of Pi', year: 2001 },
+		//  { title: 'The Curious Incident of the Dog in the Night-Time', year: 2003 }]
 
-    // [{ title: 'Harry Potter and the Sorcerer\'s Stone', year: 1997 },
-    //  { title: 'Life of Pi', year: 2001 },
-    //  { title: 'The Curious Incident of the Dog in the Night-Time', year: 2003 }]
-
-    /* CODE GOES HERE */
-
-    // Annotation:
-    // Write your annotation here as a comment
+		/* CODE GOES HERE */
+		return books.reduce((acc,book)=>{
+			book.published >= 1990 && book.published <= 2009 ? acc.push({'title':book.title, 'year':book.published}) : null;
+			return acc;
+		},[])
+		// Annotation:
+		// Write your annotation here as a comment
   }
 
 };
