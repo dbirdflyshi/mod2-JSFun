@@ -299,9 +299,13 @@ const classPrompts = {
     // ]
 
     /* CODE GOES HERE */
-
+    return classrooms.filter((room) => {
+      return room.program === 'FE'
+    })
     // Annotation:
     // Write your annotation here as a comment
+
+
   },
 
   totalCapacities() {
@@ -313,7 +317,14 @@ const classPrompts = {
     // }
 
     /* CODE GOES HERE */
-
+    var FEStudents = 0;
+    var BEStudents = 0;
+    return classrooms.reduce((acc, room) => {
+      room.program === 'FE' ? FEStudents += room.capacity : BEStudents += room.capacity
+      acc['feCapacity'] = FEStudents;
+      acc['beCapacity'] = BEStudents;
+      return acc;
+    }, {})
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -325,6 +336,9 @@ const classPrompts = {
 
     // Annotation:
     // Write your annotation here as a comment
+    return classrooms.sort((room1, room2) => {
+      return room1.capacity - room2.capacity;
+    })
   }
 };
 
