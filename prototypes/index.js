@@ -603,6 +603,7 @@ const breweryPrompts = {
     // Write your annotation here as a comment
 	// - get list of all beers
 	// - order by abv
+	// - return first in list
   }
 };
 
@@ -647,9 +648,19 @@ const turingPrompts = {
     // ]
 
     /* CODE GOES HERE */
-
+	var instructorsList = instructors.reduce((acc,instructor) =>{
+		var cohort = cohorts.find((cohort) =>{
+			return cohort.module === instructor.module
+		});
+		acc.push({'name':instructor.name, 'studentCount':cohort.studentCount})
+		return acc;
+	},[]);
+	return instructorsList;
     // Annotation:
     // Write your annotation here as a comment
+	// - List out each instructor
+	// ---- list out each cohort and compare the instructor's mod and the cohort mod, keep the match
+	// ---- return object with the instructor and the cohort mod's student count
   },
 
   studentsPerInstructor() {
@@ -660,7 +671,15 @@ const turingPrompts = {
     // }
 
     /* CODE GOES HERE */
-
+	var cohortList = cohorts.reduce((acc,cohort) => {
+		var instructorList = instructors.filter((instructor) => {
+			return cohort.module === instructor.module
+		})
+		var instructorLength = instructorList.length;
+		acc[`cohort${cohort.cohort}`] = cohort.studentCount/instructorLength
+		return acc;
+	},{})
+	return cohortList;
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -681,9 +700,23 @@ const turingPrompts = {
     //   }
 
     /* CODE GOES HERE */
-
+	var instructorList = instructors.reduce((acc,instructor) => {
+		var moduleList = cohorts.reduce((acc,cohort) => {
+			var found = instructor.teaches.some(skill => cohort.curriculum.includes(skill))
+			found? mod = acc.push(cohort.module):null;
+			return acc;
+		},[])
+		acc[`${instructor.name}`] = moduleList
+		return acc;
+	},{})
+	return instructorList;
     // Annotation:
     // Write your annotation here as a comment
+	// -- Iterate through each instructor
+	// ------ Iterate through each cohort 
+	// ---------- Compare the two teaches and curriculum arrays to see if at least one exists in each
+	// ---------- put the module of the arrays that have a match inside inside an array and return
+	// ------ return new object of instructors and mod list returned inside inner reduce
   },
 
   curriculumPerTeacher() {
@@ -697,9 +730,25 @@ const turingPrompts = {
     // }
 
     /* CODE GOES HERE */
-
+	var topicList = cohorts.reduce((acc,cohort) =>{
+		cohort.curriculum.forEach((topic)=>{
+			var instructorList = instructors.reduce((acc,instructor) => {
+				instructor.teaches.includes(topic) ? acc.push(instructor.name): null;
+				return acc;
+			},[])
+			acc[`${topic}`] = instructorList;
+		})
+		return acc;
+	},{})
+	return topicList;
     // Annotation:
     // Write your annotation here as a comment
+	// -- Iterate through each cohort to get topic list
+	// ---- Iterate through each topic
+	// ---- Get instructor list of each topic (yes, there's dupes)
+	// ---- Construct object of topics and place their instructor's list
+	// ---- return the object
+	// ---- GUCCI 😎
   }
 };
 
