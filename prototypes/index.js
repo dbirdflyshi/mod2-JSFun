@@ -557,7 +557,10 @@ const breweryPrompts = {
     // 40
 
     /* CODE GOES HERE */
-
+	return breweries.reduce((acc,brewery) =>{
+		acc+=brewery.beers.length
+		return acc
+	},0)
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -572,7 +575,10 @@ const breweryPrompts = {
     // ]
 
     /* CODE GOES HERE */
-
+	return breweries.reduce((acc,brewery) =>{
+		acc.push({'name':brewery.name, 'beerCount': brewery.beers.length})
+		return acc;
+	},[])
     // Annotation:
     // Write your annotation here as a comment
   },
@@ -583,9 +589,20 @@ const breweryPrompts = {
     // { name: 'Barrel Aged Nature\'s Sweater', type: 'Barley Wine', abv: 10.9, ibu: 40 }
 
     /* CODE GOES HERE */
-
+	var beers = []
+	breweries.forEach((brewery) =>{
+		beers.push(brewery.beers);
+	})
+	beers = beers.flat();
+	beers = beers.sort((beer1,beer2)=>{
+		return beer2.abv - beer1.abv
+	})
+	output = beers[0];
+	return output;
     // Annotation:
     // Write your annotation here as a comment
+	// - get list of all beers
+	// - order by abv
   }
 };
 
