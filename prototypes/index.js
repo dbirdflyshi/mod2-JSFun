@@ -780,7 +780,17 @@ const bossPrompts = {
     // ]
 
     /* CODE GOES HERE */
-
+	var bossLoyalty = []
+	var bossList = Object.keys(bosses)
+	bossList.forEach((bossName) =>{
+		var loyalty = sidekicks.reduce((acc,sidekick) =>{
+			sidekick["boss"] === bosses[bossName].name? acc+= sidekick.loyaltyToBoss : null;
+			return acc;
+		},0);
+		bossName = bossName[0].toUpperCase() + bossName.slice(1).toLowerCase()
+		bossLoyalty.push({"bossName": bossName, "sidekickLoyalty": loyalty})
+	});
+	return bossLoyalty;
     // Annotation:
     // Write your annotation here as a comment
   }

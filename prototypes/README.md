@@ -105,8 +105,8 @@ If you'd like to keep track of your progress, feel free to use the checklist bel
 - [x] breweries      [x] [x] [x] 
 
 ### Double Data Sets
-- [ ] turing (instructors, cohorts)     [ ] [ ] [ ] [ ]
-- [ ] bosses (bosses, sidekicks)        [ ] 
+- [x] turing (instructors, cohorts)     [x] [x] [x] [x]
+- [x] bosses (bosses, sidekicks)        [x] 
 - [ ] astronomy (constellations, stars) [ ] [ ] [ ] 
 - [ ] ultima (weapons, characters)      [ ] [ ] 
 
